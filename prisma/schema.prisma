@@ -1,0 +1,33 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model Subject {
+  id           Int            @id @default(autoincrement())
+  name         String
+  weeklyGoal   Int            @default(40)
+  createdAt    DateTime       @default(now())
+  sessions     StudySession[]
+  questions    QuestionLog[]
+}
+
+model StudySession {
+  id         Int      @id @default(autoincrement())
+  subjectId  Int
+  duration   Int
+  date       DateTime @default(now())
+  subject    Subject  @relation(fields: [subjectId], references: [id])
+}
+
+model QuestionLog {
+  id        Int      @id @default(autoincrement())
+  subjectId Int
+  count     Int
+  date      DateTime @default(now())
+  subject   Subject  @relation(fields: [subjectId], references: [id])
+}
