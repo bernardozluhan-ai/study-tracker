@@ -12,6 +12,7 @@ model Subject {
   id           Int            @id @default(autoincrement())
   name         String
   weeklyGoal   Int            @default(40)
+  archived     Boolean        @default(false)
   createdAt    DateTime       @default(now())
   sessions     StudySession[]
   questions    QuestionLog[]
