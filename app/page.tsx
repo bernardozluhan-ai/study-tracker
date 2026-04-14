@@ -105,7 +105,7 @@ export default function Home() {
                   <h2 className="text-sm font-medium text-gray-400 mb-4">Distribuição de esforço</h2>
                   <ResponsiveContainer width="100%" height={200}>
                     <PieChart>
-                      <Pie data={dash.bySubject} dataKey="minutes" nameKey="name" cx="50%" cy="50%" outerRadius={80} label={({ name, percent }) => `${name} ${Math.round(percent * 100)}%`}>
+                      <Pie data={dash.bySubject} dataKey="minutes" nameKey="name" cx="50%" cy="50%" outerRadius={80} label={({ name, percent }) => `${name} ${Math.round((percent || 0) * 100)}%`}>
                         {dash.bySubject.map((_, i) => <Cell key={i} fill={COLORS[i % COLORS.length]} />)}
                       </Pie>
                       <Tooltip contentStyle={{ background: '#111827', border: 'none' }} />
