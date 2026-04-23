@@ -47,7 +47,7 @@ export default function Home() {
   const fmtHours = (mins: number) => `${Math.floor(mins / 3600)}h ${Math.floor((mins % 3600) / 60)}m`
 
   return (
-    <main className="min-h-screen bg-gray-950 text-gray-100 p-6 max-w-7xl mx-auto">
+    <main className="min-h-screen w-full bg-gray-950 text-gray-100 p-6 max-w-7xl mx-auto">
       <div className="flex items-center justify-between mb-6">
         <h1 className="text-2xl font-semibold">📚 Study Tracker</h1>
         <div className="flex gap-2">
